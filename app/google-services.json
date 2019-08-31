@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "616423358508",
+    "firebase_url": "https://ml-text-81f41.firebaseio.com",
+    "project_id": "ml-text-81f41",
+    "storage_bucket": "ml-text-81f41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616423358508:android:807b169c62307ca3",
+        "android_client_info": {
+          "package_name": "com.kucingselfie.mltext"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616423358508-jngulk5q9ueuk860vp4dlh6hcbq0kk9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kucingselfie.mltext",
+            "certificate_hash": "311d494dcdd0537b6ef0f267cbe8c41cd5019b08"
+          }
+        },
+        {
+          "client_id": "616423358508-slibbp3sv3qf8citnnlsgtpci5pcdehl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIpNTg7tAqj9Q8HtC8Y3nTXxCNeYIPN7I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616423358508-slibbp3sv3qf8citnnlsgtpci5pcdehl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

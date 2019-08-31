@@ -16,11 +16,13 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.firebase.FirebaseApp
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
 import com.kucingselfie.mltext.model.TextModel
 import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -37,9 +39,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        FirebaseApp.initializeApp(this)
 
         bottomSheetButton.setOnClickListener {
-            CropImage.activity().start(this)
+            CropImage.activity()
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .start(this)
         }
 
         bottomSheetRecyclerView.layoutManager = LinearLayoutManager(this)
