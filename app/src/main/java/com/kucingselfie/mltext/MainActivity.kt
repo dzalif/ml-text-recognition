@@ -3,9 +3,6 @@ package com.kucingselfie.mltext
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -27,10 +24,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val imageView by lazy { findViewById<ImageView>(R.id.text_recognition_image_view)!! }
-
-    private val bottomSheetButton by lazy { findViewById<FrameLayout>(R.id.bottom_sheet_button)!! }
-    private val bottomSheetRecyclerView by lazy { findViewById<RecyclerView>(R.id.bottom_sheet_recycler_view)!! }
+    private val imageView by lazy { findViewById<ImageView>(R.id.text_recognition_image_view) }
+    private val bottomSheetButton by lazy { findViewById<FrameLayout>(R.id.bottom_sheet_button) }
+    private val bottomSheetRecyclerView by lazy { findViewById<RecyclerView>(R.id.bottom_sheet_recycler_view) }
     private val bottomSheetBehavior by lazy { BottomSheetBehavior.from(findViewById(R.id.bottom_sheet)!!) }
     private val textRecognitionModels = ArrayList<TextModel>()
 
@@ -97,25 +93,28 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun recognizeText(result: FirebaseVisionText?, image: Bitmap?) {
+
         if (result == null || image == null) {
-            Toast.makeText(this, "There was some error", Toast.LENGTH_SHORT).show()
+            return Toast.makeText(this, "There was some error", Toast.LENGTH_SHORT).show()
+        } else if (result.textBlocks.size == 0) {
+            Toast.makeText(this,"Gunakan landscape mode agar teks bisa terbaca", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val canvas = Canvas(image)
-        val rectPaint = Paint()
-        rectPaint.color = Color.RED
-        rectPaint.style = Paint.Style.STROKE
-        rectPaint.strokeWidth = 4F
-        val textPaint = Paint()
-        textPaint.color = Color.RED
-        textPaint.textSize = 40F
+//        val canvas = Canvas(image)
+//        val rectPaint = Paint()
+//        rectPaint.color = Color.RED
+//        rectPaint.style = Paint.Style.STROKE
+//        rectPaint.strokeWidth = 4F
+//        val textPaint = Paint()
+//        textPaint.color = Color.RED
+//        textPaint.textSize = 40F
 
         var index = 0
         for (block in result.textBlocks) {
             for (line in block.lines) {
-                canvas.drawRect(line.boundingBox!!, rectPaint)
-                canvas.drawText(index.toString(), line.cornerPoints!![2].x.toFloat(), line.cornerPoints!![2].y.toFloat(), textPaint)
+//                canvas.drawRect(line.boundingBox!!, rectPaint)
+//                canvas.drawText(index.toString(), line.cornerPoints!![2].x.toFloat(), line.cornerPoints!![2].y.toFloat(), textPaint)
                 textRecognitionModels.add(TextModel(index++, line.text))
             }
         }

@@ -21,7 +21,6 @@ class TextAdapter(private val context: Context, private val textModels: List<Tex
     }
 
     class TextViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val view = itemView
         val text1 = itemView.findViewById<TextView>(R.id.item_text_recognition_text_view1)!!
         val text2 = itemView.findViewById<TextView>(R.id.item_text_recognition_text_view2)!!
     }
